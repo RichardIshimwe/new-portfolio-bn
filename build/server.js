@@ -20,8 +20,7 @@ mongoose_1.default
 });
 app.use("/api/v1/", user_1.default);
 app.get('/', (req, res) => {
-    const { userName } = req.body;
-    res.status(200).json({ message: "welcome to the backend of my new portfolio", userName });
+    res.status(200).json({ message: "welcome to the backend of my new portfolio" });
 });
 app.get('*', (req, res) => {
     Logging_1.default.error("page not found");
