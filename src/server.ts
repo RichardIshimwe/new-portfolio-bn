@@ -19,7 +19,6 @@ mongoose
 app.use("/api/v1/", router);
 
 app.get('/', (req, res) => {
-    const {userName} = req.body;
     res.status(200).json({ message: "welcome to the backend of my new portfolio", userName});
 })
 
