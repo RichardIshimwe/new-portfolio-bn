@@ -6,6 +6,9 @@ import Logging from "./libraries/Logging";
 import router from "./routes/user";
 
 const app = express();
+
+app.use(express.json()); // Add this line before defining routes
+
 mongoose
 .connect(config.mongo.url)
 .then(() => {

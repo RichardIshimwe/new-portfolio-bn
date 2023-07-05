@@ -27,6 +27,7 @@
 import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 import Users from "../models/Users";
+import Logging from "../libraries/Logging";
 
 const createUser = async (req: Request, res: Response, next: NextFunction) =>{
    const { userName, email, password} = req.body;
@@ -35,7 +36,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) =>{
    });
    return await user.save()
    .then((author) => res.status(200).json( { author} ))
-   .catch((error) => res.status(200).json({ error }));
+   .catch((error) => res.status(500).json({ error }));
 }
 const readUser = (req: Request, res: Response, next: NextFunction) =>{
     return res.status(200).json({message: "read  users"});
